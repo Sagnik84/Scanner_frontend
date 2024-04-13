@@ -31,10 +31,12 @@ function QRCodeScanner() {
                         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
                         // Stop the camera stream
+                        if(code){
                         stream.getTracks().forEach(track => track.stop());
-
+                        
                         // Resolve the promise with the base64-encoded data URL
                         resolve(code);
+                        }
                     });
                 })
                 .catch(error => {
