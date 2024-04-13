@@ -9,7 +9,7 @@ function QRCodeScanner() {
        // e.preventDefault();
         return new Promise((resolve, reject) => {
             // Request access to the camera
-            navigator.mediaDevices.getUserMedia({ video: true })
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
                 .then(stream => {
                     // Create a video element to display the camera stream
                     const video = document.createElement('video');
